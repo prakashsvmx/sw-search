@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import AuthService from "../../service/AuthService";
 
-const Login = ({ history }) => {
+const Login = ({history}) => {
     const [userName, setUserName] = useState('Luke Skywalker');
     const [password, setPassword] = useState("19BBY");
     const [loading, setLoading] = useState(false);
@@ -11,8 +11,10 @@ const Login = ({ history }) => {
 
         const userInfo = await AuthService.login({
             userName: userName,
-            password:password
+            password: password
         });
+
+        console.log(userInfo);
 
         // NOTE request to api login here instead of this fake promise
         // await new Promise(r => setTimeout(r(), 1000));
@@ -25,7 +27,7 @@ const Login = ({ history }) => {
     }
 
     return (
-        <div style={{ marginTop: "1rem" }}>
+        <div style={{marginTop: "1rem"}}>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -39,7 +41,7 @@ const Login = ({ history }) => {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                 />
-                <input type="submit" value="Login" />
+                <input type="submit" value="Login"/>
             </form>
         </div>
     );

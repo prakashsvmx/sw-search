@@ -27,7 +27,7 @@ class AuthService {
             data: {
                 results
             }
-        } = {} = loginResult;
+        } = loginResult;
         let userInfo = null;
         if (results.length) {
 

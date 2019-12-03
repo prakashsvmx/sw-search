@@ -1,11 +1,25 @@
 import React from 'react';
 import PlanetInfo from "../../components/PlanetInfo";
+import {Jumbotron} from 'react-bootstrap';
 
-const PlanetList =({list=[]})=>{
-    return list.map((item)=>{
+import {Row, Col} from "react-bootstrap";
 
-        return <PlanetInfo info={item}/>
-    })
+const PlanetList = ({list = []}) => {
+    return (
+        <Jumbotron>
+            <Row>
+                {list.map((item) => {
+
+                    return (
+                        <Col>
+                            <PlanetInfo info={item}/>
+                        </Col>
+                    )
+                })
+                }
+            </Row>
+        </Jumbotron>
+    )
 
 };
 
