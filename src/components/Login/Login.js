@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import AuthService from "../../service/AuthService";
+import {FormControl, InputGroup, Jumbotron} from "react-bootstrap";
 
 const Login = ({history}) => {
     const [userName, setUserName] = useState('Luke Skywalker');
@@ -28,21 +29,40 @@ const Login = ({history}) => {
 
     return (
         <div style={{marginTop: "1rem"}}>
+            <h1>Explore planets </h1>
+            <Jumbotron>
             <form onSubmit={handleSubmit}>
-                <input
+
+                <h3>Login</h3>
+                <InputGroup className="mb-3">
+                    <FormControl
+                        value={userName}
+                        type="text" onChange={e => setUserName(e.target.value)} placeholder="Character name"
+                                 className="mr-sm-2"/>
+                </InputGroup>
+
+                <InputGroup className="mb-3">
+                    <FormControl
+                        value={password}
+                        type="password" onChange={e => setPassword(e.target.value)} placeholder="Character name"
+                        className="mr-sm-2"/>
+                </InputGroup>
+
+               {/* <input
                     type="text"
                     placeholder="Enter email address"
                     value={userName}
                     onChange={e => setUserName(e.target.value)}
-                />
-                <input
+                />*/}
+                {/*<input
                     type="password"
                     placeholder="Enter email address"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
-                />
+                />*/}
                 <input type="submit" value="Login"/>
             </form>
+            </Jumbotron>
         </div>
     );
 };
